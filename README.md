@@ -8,4 +8,4 @@ This is a mini application that allows you to log the progress on the books you 
 
 ![image](https://user-images.githubusercontent.com/73452544/143667261-d3776d07-2bc1-4861-afe4-3bc197e4076c.png)
 
-Build with: HTML/CSS, JavaScript, Firebase
+Build with: React, Firebase

@@ -5,6 +5,7 @@ This is a mini application that allows you to log the progress on the books you 
 
 - [Codepen](https://codepen.io/kunkunzhu/pen/ExWEybM?editors=1010)
 - [Odin Project](https://www.theodinproject.com/paths/full-stack-javascript/courses/javascript/lessons/library)
+- [linking with backend](https://www.freecodecamp.org/news/how-to-create-a-react-app-with-a-node-backend-the-complete-guide/)
 
 ![image](https://user-images.githubusercontent.com/73452544/143667261-d3776d07-2bc1-4861-afe4-3bc197e4076c.png)
 

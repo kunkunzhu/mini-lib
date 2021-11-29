@@ -33,11 +33,12 @@ const customStyles = {
   }
 }
 
-export const BookButton = () => {
+const BookButton = () => {
   
   const [bookModalShow, setBookModalShow] = useState(false);
 
   const onSubmit = async values => {
+    // add book -> make an API call to backend
     window.alert(JSON.stringify(values, 0, 2));
   };
 
@@ -126,3 +127,5 @@ export const BookButton = () => {
     </BookWrapper>
   );
 };
+
+export default BookButton;

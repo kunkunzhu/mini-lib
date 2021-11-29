@@ -7,9 +7,10 @@ export const Wrapper = styled.div`
   background-color: var(--white);
   display: flex;
   flex-direction: column;
-  position: sticky;
-  top: 0;
+  padding-bottom: 40px;
 `;
+
+/* Title Bar */
 
 export const Title = styled.h1`
   color: var(--night);
@@ -51,6 +52,8 @@ export const BookPileWrapper = styled.div`
     z-index: 1;
   }
 `;
+
+/* Nav Options */
 
 export const NavWrapper = styled.div`
   margin-top: 50px;
@@ -100,6 +103,8 @@ export const BookWrapper = styled.div`
     }
   }
 `
+
+/* Book Modal */
 
 export const ModalHeader = styled(Modal.Header)`
   font-weight: 400;
@@ -151,6 +156,8 @@ export const ProgressGroup = styled(FormGroup)`
 export const SubmitButton = styled.button`
   border: none;
   padding: 7px 22px 7px 22px;
+  margin-left: 10px;
+  margin-bottom: 10px;
   border-radius: 5px;
   font-size: 22px;
   background: var(--flora);

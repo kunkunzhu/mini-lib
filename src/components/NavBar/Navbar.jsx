@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Modal from "react-bootstrap/Modal";
 import { NavWrapper } from "../Header/headerStyles";
-import { BookButton } from "../BookButton/BookButton"
+import BookButton from "../BookButton/BookButton"
 
 const AccountModal = () => {
   return (
@@ -9,7 +9,7 @@ const AccountModal = () => {
   )
 }
 
-export const Navbar = () => {
+const Navbar = () => {
   const [account, setAccount] = useState(false);
   const [accountModalShow, setAccountModalShow] = useState(false);
 
@@ -39,3 +39,5 @@ export const Navbar = () => {
     </NavWrapper>
   );
 };
+
+export default Navbar;

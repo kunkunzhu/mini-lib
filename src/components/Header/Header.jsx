@@ -1,6 +1,6 @@
 import React from "react";
 import { Title, Subtitle, Wrapper, BookPileWrapper } from "./headerStyles";
-import { Navbar } from "../NavBar/Navbar"
+import Navbar from "../NavBar/Navbar"
 
 const Bookpile = () => {
   return (
@@ -12,7 +12,7 @@ const Bookpile = () => {
   )
 }
 
-export const Header = () => {
+const Header = () => {
   return (
     <Wrapper>
       <Bookpile/>
@@ -24,3 +24,5 @@ export const Header = () => {
     </Wrapper>
   );
 };
+
+export default Header;

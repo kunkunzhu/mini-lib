@@ -8,7 +8,7 @@ const Library = (props) => {
 
     let booksToShow = books
     if (show !== "all") {
-        console.log(show) // why not work
+        // console.log(show) 
         booksToShow = books.filter(book => book.progress === {show})
     }
 
@@ -23,7 +23,7 @@ const Library = (props) => {
             <BookDisplay>
                 {booksToShow.map(book => {
                     let progress = book.progress
-                    console.log(progress)
+                    // console.log(progress)
                     return (
                     <BookCardStyles.BookWrapper 
                         progress={progress} 

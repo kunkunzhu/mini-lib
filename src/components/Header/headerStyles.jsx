@@ -139,6 +139,8 @@ export const ModalContent = styled(Modal.Body)`
   }
 `
 
+/* Book Modal Form Components */
+
 export const ProgressGroup = styled(FormGroup)`
   font-family: "var(--txt-font)",
   letter-spacing: 0.1rem;
@@ -172,4 +174,13 @@ export const SubmitButton = styled.button`
     padding: 6.5px 21.5px 6.5px 21.5px;
     transition: 0.3s ease;
   }
+`
+
+export const FormError = styled.span`
+  color: var(--flora);
+  font-family: var(--txt-font);
+  letter-spacing: 0.1rem;
+  font-size: 12px;
+  margin-left: 20px;
+  opacity: 0.7;
 `

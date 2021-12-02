@@ -8,8 +8,12 @@ import {
   SubmitButton,
   ModalContent,
   ModalHeader,
-  ProgressGroup
+  ProgressGroup,
+  FormError
 } from "../Header/headerStyles";
+import axios from 'axios'
+import * as yup from 'yup';
+import { makeValidate } from "../../util/makeValidate";
 
 const customStyles = {
   option: (provided, state) => ({
@@ -33,19 +37,35 @@ const customStyles = {
   }
 }
 
+const validationSchema = yup.object().shape({
+  title: yup.string().required("um, title is required (ㆆ_ㆆ)"),
+  author: yup.string().required("um, author is required (ㆆ_ㆆ)"),
+});
+
 const BookButton = () => {
   
   const [bookModalShow, setBookModalShow] = useState(false);
 
   const onSubmit = async values => {
-    // add book -> make an API call to backend
+    const newBook = {
+      title: values.title,
+      author: values.author,
+      progress: values.progress
+    }
+
+    axios
+      .post('http://localhost:4000/books', newBook)
+      .then(response => {
+        console.log(response)
+      })
     window.alert(JSON.stringify(values, 0, 2));
+    setBookModalShow(false);
   };
 
   const progressOptions = [
-    { value: "not-started", label: "Not Started 💡" },
-    { value: "in-progress", label: "In progress 🚧" },
-    { value: "finished", label: "Finished ✅" }
+    { value: "💡", label: "Not Started 💡" },
+    { value: "🚧", label: "In progress 🚧" },
+    { value: "✅", label: "Finished ✅" }
   ];
 
   return (
@@ -62,13 +82,14 @@ const BookButton = () => {
         <ModalContent>
           <Form
             onSubmit={onSubmit}
+            validate={makeValidate(validationSchema)}
             render={({ handleSubmit, submitting }) => (
               <form onSubmit={handleSubmit}>
                 <Field name="title">
                   {({ input, meta }) => (
                     <div>
                       <input {...input} type="text" placeholder="title" />
-                      {meta.error && meta.touched && <span>{meta.error}</span>}
+                      {meta.error && meta.touched && <FormError>{meta.error}</FormError>}
                     </div>
                   )}
                 </Field>
@@ -76,7 +97,7 @@ const BookButton = () => {
                   {({ input, meta }) => (
                     <div>
                       <input {...input} type="text" placeholder="author" />
-                      {meta.error && meta.touched && <span>{meta.error}</span>}
+                      {meta.error && meta.touched && <FormError>{meta.error}</FormError>}
                     </div>
                   )}
                 </Field>

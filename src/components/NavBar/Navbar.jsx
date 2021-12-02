@@ -1,17 +1,17 @@
 import React, { useState } from "react";
-import Modal from "react-bootstrap/Modal";
+// import Modal from "react-bootstrap/Modal";
 import { NavWrapper } from "../Header/headerStyles";
 import BookButton from "../BookButton/BookButton"
 
-const AccountModal = () => {
-  return (
-    <Modal></Modal>
-  )
-}
+// const AccountModal = () => {
+//   return (
+//     <Modal></Modal>
+//   )
+// }
 
 const Navbar = () => {
   const [account, setAccount] = useState(false);
-  const [accountModalShow, setAccountModalShow] = useState(false);
+  // const [accountModalShow, setAccountModalShow] = useState(false);
 
   return (
     <NavWrapper>
@@ -21,7 +21,7 @@ const Navbar = () => {
             <button
               onClick={() => {
                 setAccount(true);
-                setAccountModalShow(true);
+                // setAccountModalShow(true);
               }}
             >
               Log In.

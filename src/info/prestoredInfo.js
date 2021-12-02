@@ -1,7 +1,32 @@
 export const books = [
-    ["This One Wild and Precious Life", "Sarah Wilson",  "🚧"],
-    ["User Friendly", "Cliff Kuang & Robert Fabricant", "🚧"],
-    ["Do Not Say We Have Nothing", "Madeleine Thien", "✅"],
-    ["Little Fires Everywhere", "Celeste Ng", "✅"],
-    ["The Defining Decade", "Meg Jay", "💡"]
+        {
+        id: 1,
+        title: "This One Wild and Precious Life",
+        author: "Sarah Wilson",
+        progress: "🚧"
+    },
+    {
+        id: 2,
+        title: "User Friendly",
+        author: "Cliff Kuang & Robert Fabricant",
+        progress: "🚧"
+    },
+    {
+        id: 3,
+        title: "Do Not Say We Have Nothing",
+        author: "Madeleine Thien",
+        progress: "✅"
+    },
+    {
+        id: 4,
+        title: "Little Fires Everywhere",
+        author: "Celeste Ng",
+        progress: "✅"
+    },
+    {
+        id: 5,
+        title: "The Defining Decade",
+        author: "Meg Jay",
+        progress: "💡"
+    },
 ]

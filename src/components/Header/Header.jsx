@@ -12,7 +12,7 @@ const Bookpile = () => {
   )
 }
 
-const Header = () => {
+const Header = (props) => {
   return (
     <Wrapper>
       <Bookpile/>
@@ -20,7 +20,7 @@ const Header = () => {
         <Title>personal library.</Title>
         <Subtitle>document your reading progress here!</Subtitle>
       </div>
-      <Navbar/>
+      <Navbar addBook={props.addBook}/>
     </Wrapper>
   );
 };

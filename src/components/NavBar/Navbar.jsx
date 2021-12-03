@@ -9,7 +9,7 @@ import BookButton from "../BookButton/BookButton"
 //   )
 // }
 
-const Navbar = () => {
+const Navbar = (props) => {
   const [account, setAccount] = useState(false);
   // const [accountModalShow, setAccountModalShow] = useState(false);
 
@@ -35,7 +35,7 @@ const Navbar = () => {
           </div>
         )}
       </div>
-      <BookButton/>
+      <BookButton addBook={props.addBook} />
     </NavWrapper>
   );
 };

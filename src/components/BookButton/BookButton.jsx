@@ -42,7 +42,7 @@ const validationSchema = yup.object().shape({
   author: yup.string().required("um, author is required (ㆆ_ㆆ)"),
 });
 
-const BookButton = () => {
+const BookButton = (props) => {
   
   const [bookModalShow, setBookModalShow] = useState(false);
 
@@ -56,9 +56,8 @@ const BookButton = () => {
     axios
       .post('http://localhost:4000/books', newBook)
       .then(response => {
-        console.log(response)
+        props.addBook(response)
       })
-    window.alert(JSON.stringify(values, 0, 2));
     setBookModalShow(false);
   };
 

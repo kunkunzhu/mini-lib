@@ -9,8 +9,13 @@ export default function Home() {
   const [libBooks, setLibBooks] = useState([])
   // start with empty list -> useState([])
 
+  const addBook = (response) => {
+    setLibBooks(libBooks.concat(response.data))
+  }
+
+
   useEffect(() => {
-    console.log('effect')
+    // console.log('effect')
     axios
       .get('http://localhost:4000/books')
       .then(response => {
@@ -18,11 +23,11 @@ export default function Home() {
         setLibBooks(response.data)
       })
   }, [])
-  console.log('render', libBooks.length, 'books')
+  // console.log('render', libBooks.length, 'books')
   
   return (
     <div className="app">
-      <Header/>
+      <Header addBook={addBook}/>
       <Library books={libBooks} />
     </div>
     );

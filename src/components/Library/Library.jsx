@@ -37,6 +37,7 @@ const Library = (props) => {
                     <BookCardStyles.BookWrapper 
                         progress={progress} 
                         key={book.id}
+                        onClick={props.changeProgress(book.id)}
                     >
                         <BookCardStyles.BookInfo>
                             <h3 className="title">{book.title}</h3>

@@ -1,30 +1,34 @@
 import React, { useState, useEffect } from "react";
 import Header from "./components/Header/Header";
 import Library from "./components/Library/Library";
-// import { books } from "./info/prestoredInfo"
+import booksService from "./services/books";
 import './App.css';
-import axios from 'axios'
 
 export default function Home() {
   const [libBooks, setLibBooks] = useState([])
   // start with empty list -> useState([])
 
-  const addBook = (response) => {
-    setLibBooks(libBooks.concat(response.data))
+  const addBook = (values) => {
+    const newBook = {
+      title: values.title,
+      author: values.author,
+      progress: values.progress
+    }
+
+    booksService
+      .createBook(newBook)
+      .then(response => {
+        setLibBooks(libBooks.concat(response.data))
+      })
   }
 
   const changeProgress = (id) => {
-    const url = `http://localhost:4001/books/${id}`
     let book = libBooks.find(b => b.id === id)
-    if (book.progress === "🚧") {
-      book.progress = "✅"
-    } else if (book.progress === "✅") {
-      book.progress = "💡"
-    } else {
-      book.progress = "🚧"
-    }
+    book.progress < 3 ? book.progress += 1 : book.progress = 1;
 
-    axios.put(url, book).then(response => {
+    booksService 
+      .updateBook(id, book)
+      .then(response => {
       setLibBooks(
         libBooks.map( 
           libBook => 
@@ -32,18 +36,14 @@ export default function Home() {
     })
   }
 
-
-
   useEffect(() => {
-    // console.log('effect')
-    axios
-      .get('http://localhost:4001/books')
+    booksService
+      .getBooks()
       .then(response => {
         console.log('promise fulfulled')
         setLibBooks(response.data)
       })
   }, [])
-  // console.log('render', libBooks.length, 'books')
   
   return (
     <div className="app">

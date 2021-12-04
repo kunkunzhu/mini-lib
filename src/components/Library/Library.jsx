@@ -6,12 +6,18 @@ import { BookDisplay, DisplayOptions } from "./LibraryStyles"
 const Library = (props) => {
     const books = props.books
 
-    const [show, setShow] = useState("all")
+    const [show, setShow] = useState(0)
 
     let booksToShow = books
-    if (show !== "all") {
-        // console.log(show) 
+    if (show) {
+        console.log("show") 
+        console.log(show) 
+        console.log("book progress") 
+        booksToShow.map(book => console.log(book.progress))
         booksToShow = books.filter(book => book.progress === {show})
+        if (!booksToShow.length) {
+            console.log("WHY NO WORKING") 
+        }
     }
 
     // const deleteBook = (id) => {
@@ -25,14 +31,21 @@ const Library = (props) => {
     return(
          <>
             <DisplayOptions>
-                <span onClick={()=> setShow("all")}>all</span>
-                <span onClick={()=> setShow("💡")}>💡</span>
-                <span onClick={()=> setShow("🚧")}>🚧</span>
-                <span onClick={()=> setShow("✅")}>✅</span>
+                <span onClick={()=> setShow(0)}>all</span>
+                <span onClick={()=> setShow(1)}>💡</span>
+                <span onClick={()=> setShow(2)}>🚧</span>
+                <span onClick={()=> setShow(3)}>✅</span>
             </DisplayOptions>
             <BookDisplay>
                 {booksToShow.map(book => {
-                    let progress = book.progress
+                    let progress;
+                    if (book.progress === 1) {
+                        progress = "💡"
+                    } else if (book.progress === 2) {
+                        progress = "🚧"
+                    } else {
+                        progress = "✅"
+                    }
                     return (
                     <BookCardStyles.BookWrapper 
                         progress={progress} 

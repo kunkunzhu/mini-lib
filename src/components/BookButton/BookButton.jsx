@@ -11,7 +11,6 @@ import {
   ProgressGroup,
   FormError
 } from "../Header/headerStyles";
-import axios from 'axios'
 import * as yup from 'yup';
 import { makeValidate } from "../../util/makeValidate";
 
@@ -47,17 +46,7 @@ const BookButton = (props) => {
   const [bookModalShow, setBookModalShow] = useState(false);
 
   const onSubmit = async values => {
-    const newBook = {
-      title: values.title,
-      author: values.author,
-      progress: values.progress
-    }
-
-    axios
-      .post('http://localhost:4001/books', newBook)
-      .then(response => {
-        props.addBook(response)
-      })
+    props.addBook(values)
     setBookModalShow(false);
   };
 

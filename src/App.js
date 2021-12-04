@@ -13,8 +13,8 @@ export default function Home() {
     setLibBooks(libBooks.concat(response.data))
   }
 
-  const changeProgress = id => {
-    const url = `http://localhost:4000/books/${id}`
+  const changeProgress = (id) => {
+    const url = `http://localhost:4001/books/${id}`
     let book = libBooks.find(b => b.id === id)
     if (book.progress === "🚧") {
       book.progress = "✅"
@@ -37,7 +37,7 @@ export default function Home() {
   useEffect(() => {
     // console.log('effect')
     axios
-      .get('http://localhost:4000/books')
+      .get('http://localhost:4001/books')
       .then(response => {
         console.log('promise fulfulled')
         setLibBooks(response.data)
@@ -48,7 +48,9 @@ export default function Home() {
   return (
     <div className="app">
       <Header addBook={addBook}/>
-      <Library changeProgress={changeProgress} books={libBooks} />
+      <Library 
+      changeProgress={changeProgress} 
+      books={libBooks} />
     </div>
     );
 }

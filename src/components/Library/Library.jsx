@@ -1,10 +1,11 @@
 import React, { useState } from "react";
-import axios from 'axios'
+// import axios from 'axios'
 import * as BookCardStyles from "./BookCardStyles"
 import { BookDisplay, DisplayOptions } from "./LibraryStyles"
 
 const Library = (props) => {
-    const { books } = props
+    const books = props.books
+
     const [show, setShow] = useState("all")
 
     let booksToShow = books
@@ -32,12 +33,11 @@ const Library = (props) => {
             <BookDisplay>
                 {booksToShow.map(book => {
                     let progress = book.progress
-                    // console.log(progress)
                     return (
                     <BookCardStyles.BookWrapper 
                         progress={progress} 
                         key={book.id}
-                        onClick={props.changeProgress(book.id)}
+                        onClick={() => props.changeProgress(book.id)}
                     >
                         <BookCardStyles.BookInfo>
                             <h3 className="title">{book.title}</h3>

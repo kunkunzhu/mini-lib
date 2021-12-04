@@ -26,13 +26,23 @@ export default function Home() {
     let book = libBooks.find(b => b.id === id)
     book.progress < 3 ? book.progress += 1 : book.progress = 1;
 
-    booksService 
-      .updateBook(id, book)
-      .then(response => {
+    booksService
+    .updateBook(id, book)
+    .then(response => {
       setLibBooks(
         libBooks.map( 
           libBook => 
-          libBook.id !== id ? libBook : response.data))
+          libBook.id !== id ? libBook : response.data)
+          )})
+  }
+
+  const deleteBook = (id) => {
+    booksService
+    .deleteBook(id)
+    .then(response => {
+      setLibBooks(
+        libBooks.filter(b => b.id !== id)
+      )
     })
   }
 
@@ -49,6 +59,7 @@ export default function Home() {
     <div className="app">
       <Header addBook={addBook}/>
       <Library 
+      deleteBook={deleteBook}
       changeProgress={changeProgress} 
       books={libBooks} />
     </div>

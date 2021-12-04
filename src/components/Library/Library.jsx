@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-// import axios from 'axios'
 import * as BookCardStyles from "./BookCardStyles"
 import { BookDisplay, DisplayOptions } from "./LibraryStyles"
 
@@ -19,14 +18,6 @@ const Library = (props) => {
             console.log("WHY NO WORKING") 
         }
     }
-
-    // const deleteBook = (id) => {
-    //     axios
-    //     .delete('http://localhost:4000/books', newBook)
-    //     .then(response => {
-    //         console.log(response)
-    //     })
-    // }
 
     return(
          <>
@@ -59,7 +50,7 @@ const Library = (props) => {
                         <BookCardStyles.Buttons progress={progress}>
                             <button className="progress">{progress}</button>
                             <button className="remove" 
-                                // onClick={deleteBook(book.id)}
+                            onClick={() => props.deleteBook(book.id)}
                             >
                                 <i className="fas fa-trash"> </i>
                             </button>

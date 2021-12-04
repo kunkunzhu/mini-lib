@@ -4,9 +4,11 @@ const baseUrl = 'http://localhost:4001/books'
 const booksService = {
     getBooks: () => axios.get(baseUrl),
 
-    createBooks: (newObject) => axios.post(baseUrl, newObject),
+    createBook: (newObject) => axios.post(baseUrl, newObject),
 
-    updateBooks: (id, newObject) => axios.put(`${baseUrl}/${id}`, newObject),
+    updateBook: (id, newObject) => axios.put(`${baseUrl}/${id}`, newObject),
+
+    deleteBook: (id) => axios.delete(`${baseUrl}/${id}`)
 }
 
 export default booksService

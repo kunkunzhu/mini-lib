@@ -51,9 +51,9 @@ const BookButton = (props) => {
   };
 
   const progressOptions = [
-    { value: "💡", label: "Not Started 💡" },
-    { value: "🚧", label: "In progress 🚧" },
-    { value: "✅", label: "Finished ✅" }
+    { value: 1, label: "Not Started 💡" },
+    { value: 2, label: "In progress 🚧" },
+    { value: 3, label: "Finished ✅" }
   ];
 
   return (

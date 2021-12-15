@@ -13,7 +13,7 @@ const Library = (props) => {
         console.log(show) 
         console.log("book progress") 
         booksToShow.map(book => console.log(book.progress))
-        booksToShow = books.filter(book => book.progress === {show})
+        booksToShow = books.filter(book => book.progress === Number(show))
         if (!booksToShow.length) {
             console.log("WHY NO WORKING") 
         }

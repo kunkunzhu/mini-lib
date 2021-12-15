@@ -6,15 +6,15 @@ import './App.css';
 
 export default function Home() {
   const [libBooks, setLibBooks] = useState([])
-  // start with empty list -> useState([])
 
   const addBook = (values) => {
+    console.log(values)
     const newBook = {
       title: values.title,
       author: values.author,
       progress: values.progress
     }
-
+    console.log(newBook)
     booksService
       .createBook(newBook)
       .then(response => {
@@ -25,15 +25,17 @@ export default function Home() {
   const changeProgress = (id) => {
     let book = libBooks.find(b => b.id === id)
     book.progress < 3 ? book.progress += 1 : book.progress = 1;
-
+    console.log(book)
     booksService
     .updateBook(id, book)
     .then(response => {
       setLibBooks(
         libBooks.map( 
           libBook => 
-          libBook.id !== id ? libBook : response.data)
-          )})
+          libBook.id !== id ? libBook : response.data
+          )
+      )
+    })
   }
 
   const deleteBook = (id) => {
